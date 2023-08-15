@@ -1,0 +1,111 @@
+﻿@model MVCFoodApp.Models.Food
+
+@{
+    ViewBag.Title = "FoodDelete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .delete {
+        margin: 20px auto;
+        max-width: 1000px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+    }
+
+    .dl-horizontal dt {
+        width: 160px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 180px;
+        margin-bottom: 15px;
+    }
+
+    .btn-default {
+        background-color: #dc3545;
+        color: #ffffff;
+        border: none;
+        margin: 20px auto;
+    }
+
+
+        .btn-default:hover {
+            background-color: #b52b38;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .back-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+
+<br />
+<br />
+<br />
+<br />
+<div class="delete">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodShortName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="SİL" class="btn btn-default" />
+        </div>
+    }
+</div>

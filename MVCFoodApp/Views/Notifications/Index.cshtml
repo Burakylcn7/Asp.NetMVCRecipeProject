@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MVCFoodApp.Models.Notification>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+    .action-links a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+
+    .create-link a {
+        color: #28a745;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .create-link a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<br /><br /><br /><br /><br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationMail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationMail)
+        </td>
+        <td>
+            @Html.ActionLink("SİL", "NotificationDelete", new { id = item.NotificationID })
+        </td>
+    </tr>
+}
+
+</table>
+

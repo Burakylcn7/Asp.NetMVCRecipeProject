@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MVCFoodApp.Models.Food>
+
+@{
+    ViewBag.Title = "FoodList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 50px 5px;
+        padding: 10px;
+    }
+
+
+    th {
+        background-color: #f2f2f2;
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .action-links a {
+        margin-right: 5px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .create-link {
+        text-align: right;
+        margin: 20px;
+    }
+</style>
+
+<br /><br /><br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodShortName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodType)
+        </td>
+        <td>
+           <img src="@Html.DisplayFor(modelItem => item.FoodImage)" width="70px;" height="70px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodShortName)
+        </td>
+        <td>
+            @Html.ActionLink("DÜZENLE", "FoodUpdate", new { id = item.FoodID }) 
+            @Html.ActionLink("SİL", "FoodDelete", new { id = item.FoodID })
+        </td>
+    </tr>
+}
+
+</table>
+<p class="create-link">
+    @Html.ActionLink("EKLE", "FoodAdd")
+</p>
